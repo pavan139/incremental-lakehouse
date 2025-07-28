@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "11",
+  "repository_name": "incremental-lakehouse",
+  "title": "Incremental Lakehouse",
+  "package": "incremental_lakehouse",
+  "language": "python",
+  "field": "Data engineering",
+  "focus": "Incremental CDC warehouse with schema contracts, lineage and atomic publish",
+  "ai_connection": "Reliable datasets and ingestion for training and retrieval",
+  "smoke_commands": [
+    {
+      "name": "demo",
+      "args": []
+    },
+    {
+      "name": "evaluate",
+      "args": []
+    }
+  ],
+  "layout": {
+    "docs_root": "design",
+    "tests_root": "tests",
+    "tools_root": "maintenance",
+    "config_root": "contracts",
+    "examples_root": "fixtures",
+    "verifier": "maintenance/check_publish.py",
+    "source_roots": [
+      "src"
+    ],
+    "documents": {
+      "architecture": "design/publish-path.md",
+      "design": "design/cdc-and-view-rules.md",
+      "review": "design/recovery-cases.md",
+      "experiments": "design/change-stream-runs.md",
+      "publishing": "design/releasing-the-warehouse.md",
+      "validation": "design/check-results.md"
+    }
+  }
+}

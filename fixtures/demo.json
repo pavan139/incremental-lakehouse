@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "experiment": "seeded_synthetic_CDC_vs_independent_full_rebuild",
+  "seed": 17,
+  "input_sha256": "0408c38acbae20de0789b15142bd6733acb815f7f2b3df1fb554e4eaf72fa811",
+  "unique_source_events": 120,
+  "published_batches": 12,
+  "checks": 53,
+  "passed": 53,
+  "metrics": {
+    "new_offsets": 120,
+    "duplicate_events": 11,
+    "quarantined": 7,
+    "stale_events": 26,
+    "changed_source_keys": 77
+  },
+  "final_snapshot": {
+    "sources": {
+      "orders": {
+        "order_0": {
+          "amount_cents": 181,
+          "entity": "entity_0",
+          "id": "order_0",
+          "region": "unknown",
+          "status": "refunded"
+        },
+        "order_10": {
+          "amount_cents": 265,
+          "entity": "entity_3",
+          "id": "order_10",
+          "region": "unknown",
+          "status": "pending"
+        },
+        "order_11": {
+          "amount_cents": 141,
+          "entity": "entity_0",
+          "id": "order_11",
+          "region": "unknown",
+          "status": "pending"
+        },
+        "order_2": {
+          "amount_cents": 6,
+          "entity": "entity_3",
+          "id": "order_2",
+          "region": "eu",
+          "status": "pending"
+        },
+        "order_4": {
+          "amount_cents": 19,
+          "entity": "entity_1",
+          "id": "order_4",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_5": {
+          "amount_cents": 196,
+          "entity": "entity_1",
+          "id": "order_5",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_6": {
+          "amount_cents": 237,
+          "entity": "entity_0",
+          "id": "order_6",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_7": {
+          "amount_cents": 113,
+          "entity": "entity_2",
+          "id": "order_7",
+          "region": "eu",
+          "status": "paid"
+        },
+        "order_8": {
+          "amount_cents": 23,
+          "entity": "entity_0",
+          "id": "order_8",
+          "region": "unknown",
+          "status": "pending"
+        },
+        "order_9": {
+          "amount_cents": 21,
+          "entity": "entity_0",
+          "id": "order_9",
+          "region": "unknown",
+          "status": "refunded"
+        }
+      }
+    },
+    "models": {
+      "paid_orders": {
+        "order_4": {
+          "amount_cents": 19,
+          "entity": "entity_1",
+          "id": "order_4",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_5": {
+          "amount_cents": 196,
+          "entity": "entity_1",
+          "id": "order_5",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_6": {
+          "amount_cents": 237,
+          "entity": "entity_0",
+          "id": "order_6",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_7": {
+          "amount_cents": 113,
+          "entity": "entity_2",
+          "id": "order_7",
+          "region": "eu",
+          "status": "paid"
+        }
+      },
+      "refunded_orders": {
+        "order_0": {
+          "amount_cents": 181,
+          "entity": "entity_0",
+          "id": "order_0",
+          "region": "unknown",
+          "status": "refunded"
+        },
+        "order_9": {
+          "amount_cents": 21,
+          "entity": "entity_0",
+          "id": "order_9",
+          "region": "unknown",
+          "status": "refunded"
+        }
+      },
+      "entity_totals": {
+        "\"entity_0\"": {
+          "entity": "entity_0",
+          "order_count": 1,
+          "total_amount_cents": 237
+        },
+        "\"entity_1\"": {
+          "entity": "entity_1",
+          "order_count": 2,
+          "total_amount_cents": 215
+        },
+        "\"entity_2\"": {
+          "entity": "entity_2",
+          "order_count": 1,
+          "total_amount_cents": 113
+        }
+      },
+      "refund_totals": {
+        "\"entity_0\"": {
+          "entity": "entity_0",
+          "order_count": 2,
+          "total_amount_cents": 202
+        }
+      }
+    },
+    "offsets": [
+      {
+        "source": "orders_source",
+        "partition": "p0",
+        "offset": 39
+      },
+      {
+        "source": "orders_source",
+        "partition": "p1",
+        "offset": 39
+      },
+      {
+        "source": "orders_source",
+        "partition": "p2",
+        "offset": 39
+      }
+    ],
+    "quarantine_count": 7,
+    "generation": 12,
+    "content_generations": {
+      "entity_totals": 12,
+      "orders": 12,
+      "paid_orders": 12,
+      "refund_totals": 12,
+      "refunded_orders": 12
+    },
+    "lineage": [
+      {
+        "model": "entity_totals",
+        "dependency": "paid_orders",
+        "input_generation": 12,
+        "generation": 12
+      },
+      {
+        "model": "paid_orders",
+        "dependency": "orders",
+        "input_generation": 12,
+        "generation": 12
+      },
+      {
+        "model": "refund_totals",
+        "dependency": "refunded_orders",
+        "input_generation": 12,
+        "generation": 12
+      },
+      {
+        "model": "refunded_orders",
+        "dependency": "orders",
+        "input_generation": 12,
+        "generation": 12
+      }
+    ]
+  },
+  "limitations": [
+    "SQLite local single-writer publication; no distributed transactions.",
+    "Event-time LWW with deterministic source ties is the declared conflict policy.",
+    "Synthetic integer-valued orders; no production throughput or downstream model quality claim."
+  ]
+}

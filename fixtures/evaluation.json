@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "experiment": "seeded_synthetic_CDC_vs_independent_full_rebuild",
+  "seed": 17,
+  "input_sha256": "0408c38acbae20de0789b15142bd6733acb815f7f2b3df1fb554e4eaf72fa811",
+  "unique_source_events": 120,
+  "published_batches": 12,
+  "checks": 53,
+  "passed": 53,
+  "metrics": {
+    "new_offsets": 120,
+    "duplicate_events": 11,
+    "quarantined": 7,
+    "stale_events": 26,
+    "changed_source_keys": 77
+  },
+  "final_snapshot": {
+    "sources": {
+      "orders": {
+        "order_0": {
+          "amount_cents": 181,
+          "entity": "entity_0",
+          "id": "order_0",
+          "region": "unknown",
+          "status": "refunded"
+        },
+        "order_10": {
+          "amount_cents": 265,
+          "entity": "entity_3",
+          "id": "order_10",
+          "region": "unknown",
+          "status": "pending"
+        },
+        "order_11": {
+          "amount_cents": 141,
+          "entity": "entity_0",
+          "id": "order_11",
+          "region": "unknown",
+          "status": "pending"
+        },
+        "order_2": {
+          "amount_cents": 6,
+          "entity": "entity_3",
+          "id": "order_2",
+          "region": "eu",
+          "status": "pending"
+        },
+        "order_4": {
+          "amount_cents": 19,
+          "entity": "entity_1",
+          "id": "order_4",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_5": {
+          "amount_cents": 196,
+          "entity": "entity_1",
+          "id": "order_5",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_6": {
+          "amount_cents": 237,
+          "entity": "entity_0",
+          "id": "order_6",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_7": {
+          "amount_cents": 113,
+          "entity": "entity_2",
+          "id": "order_7",
+          "region": "eu",
+          "status": "paid"
+        },
+        "order_8": {
+          "amount_cents": 23,
+          "entity": "entity_0",
+          "id": "order_8",
+          "region": "unknown",
+          "status": "pending"
+        },
+        "order_9": {
+          "amount_cents": 21,
+          "entity": "entity_0",
+          "id": "order_9",
+          "region": "unknown",
+          "status": "refunded"
+        }
+      }
+    },
+    "models": {
+      "paid_orders": {
+        "order_4": {
+          "amount_cents": 19,
+          "entity": "entity_1",
+          "id": "order_4",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_5": {
+          "amount_cents": 196,
+          "entity": "entity_1",
+          "id": "order_5",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_6": {
+          "amount_cents": 237,
+          "entity": "entity_0",
+          "id": "order_6",
+          "region": "unknown",
+          "status": "paid"
+        },
+        "order_7": {
+          "amount_cents": 113,
+          "entity": "entity_2",
+          "id": "order_7",
+          "region": "eu",
+          "status": "paid"
+        }
+      },
+      "refunded_orders": {
+        "order_0": {
+          "amount_cents": 181,
+          "entity": "entity_0",
+          "id": "order_0",
+          "region": "unknown",
+          "status": "refunded"
+        },
+        "order_9": {
+          "amount_cents": 21,
+          "entity": "entity_0",
+          "id": "order_9",
+          "region": "unknown",
+          "status": "refunded"
+        }
+      },
+      "entity_totals": {
+        "\"entity_0\"": {
+          "entity": "entity_0",
+          "order_count": 1,
+          "total_amount_cents": 237
+        },
+        "\"entity_1\"": {
+          "entity": "entity_1",
+          "order_count": 2,
+          "total_amount_cents": 215
+        },
+        "\"entity_2\"": {
+          "entity": "entity_2",
+          "order_count": 1,
+          "total_amount_cents": 113
+        }
+      },
+      "refund_totals": {
+        "\"entity_0\"": {
+          "entity": "entity_0",
+          "order_count": 2,
+          "total_amount_cents": 202
+        }
+      }
+    },
+    "offsets": [
+      {
+        "source": "orders_source",
+        "partition": "p0",
+        "offset": 39
+      },
+      {
+        "source": "orders_source",
+        "partition": "p1",
+        "offset": 39
+      },
+      {
+        "source": "orders_source",
+        "partition": "p2",
+        "offset": 39
+      }
+    ],
+    "quarantine_count": 7,
+    "generation": 12,
+    "content_generations": {
+      "entity_totals": 12,
+      "orders": 12,
+      "paid_orders": 12,
+      "refund_totals": 12,
+      "refunded_orders": 12
+    },
+    "lineage": [
+      {
+        "model": "entity_totals",
+        "dependency": "paid_orders",
+        "input_generation": 12,
+        "generation": 12
+      },
+      {
+        "model": "paid_orders",
+        "dependency": "orders",
+        "input_generation": 12,
+        "generation": 12
+      },
+      {
+        "model": "refund_totals",
+        "dependency": "refunded_orders",
+        "input_generation": 12,
+        "generation": 12
+      },
+      {
+        "model": "refunded_orders",
+        "dependency": "orders",
+        "input_generation": 12,
+        "generation": 12
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "batch-00-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-00-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-00-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-00-idempotence",
+      "passed": true
+    },
+    {
+      "id": "batch-01-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-01-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-01-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-01-idempotence",
+      "passed": true
+    },
+    {
+      "id": "batch-02-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-02-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-02-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-02-idempotence",
+      "passed": true
+    },
+    {
+      "id": "batch-03-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-03-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-03-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-03-idempotence",
+      "passed": true
+    },
+    {
+      "id": "partial-staging-invisible",
+      "passed": true
+    },
+    {
+      "id": "batch-04-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-04-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-04-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-04-idempotence",
+      "passed": true
+    },
+    {
+      "id": "batch-05-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-05-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-05-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-05-idempotence",
+      "passed": true
+    },
+    {
+      "id": "batch-06-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-06-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-06-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-06-idempotence",
+      "passed": true
+    },
+    {
+      "id": "failed-publish-atomic",
+      "passed": true
+    },
+    {
+      "id": "batch-07-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-07-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-07-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-07-idempotence",
+      "passed": true
+    },
+    {
+      "id": "batch-08-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-08-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-08-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-08-idempotence",
+      "passed": true
+    },
+    {
+      "id": "batch-09-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-09-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-09-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-09-idempotence",
+      "passed": true
+    },
+    {
+      "id": "batch-10-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-10-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-10-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-10-idempotence",
+      "passed": true
+    },
+    {
+      "id": "batch-11-full-rebuild",
+      "passed": true
+    },
+    {
+      "id": "batch-11-offsets",
+      "passed": true
+    },
+    {
+      "id": "batch-11-lineage",
+      "passed": true
+    },
+    {
+      "id": "batch-11-idempotence",
+      "passed": true
+    },
+    {
+      "id": "conflicting-offset",
+      "passed": true
+    },
+    {
+      "id": "offset-gap",
+      "passed": true
+    },
+    {
+      "id": "incompatible-schema",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "SQLite local single-writer publication; no distributed transactions.",
+    "Event-time LWW with deterministic source ties is the declared conflict policy.",
+    "Synthetic integer-valued orders; no production throughput or downstream model quality claim."
+  ]
+}

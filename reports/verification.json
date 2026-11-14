@@ -1,0 +1,1550 @@
+{
+  "schema_version": 3,
+  "generated_at_utc": "2026-11-15T04:20:12.188000+00:00",
+  "repository": "incremental-lakehouse",
+  "field": "Data engineering",
+  "ai_connection": "Reliable datasets and ingestion for training and retrieval",
+  "language": "python",
+  "toolchain": null,
+  "source_sha256": "11ddb38ba488c033f2e4cb28330b6fb599a89ba8b9b0b41f1aac70637f1fdf04",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "scope": "implemented_systems_and_controlled_cpu_experiments",
+  "tests_discovered": 22,
+  "tests_skipped": 0,
+  "tests_executed": 22,
+  "external_provider_calls": false,
+  "passed": true,
+  "checks": [
+    {
+      "name": "metadata_and_documentation",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "lint",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/workspace/applied-ai-labs/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "maintenance"
+      ],
+      "seconds": 0.100825
+    },
+    {
+      "name": "format",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "8 files already formatted\n",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/workspace/applied-ai-labs/.venv/bin/python",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "maintenance"
+      ],
+      "seconds": 0.067685
+    },
+    {
+      "name": "compile",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/workspace/applied-ai-labs/.venv/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "tests",
+        "maintenance"
+      ],
+      "seconds": 0.117157
+    },
+    {
+      "name": "unit_tests",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "test_additive_schema_migrates_old_rows_and_old_version_events (test_warehouse.WarehouseTests.test_additive_schema_migrates_old_rows_and_old_version_events) ... ok\ntest_bad_quality_type_key_and_unknown_schema_are_quarantined (test_warehouse.WarehouseTests.test_bad_quality_type_key_and_unknown_schema_are_quarantined) ... ok\ntest_bounded_typed_inputs_and_utf8_are_explicit (test_warehouse.WarehouseTests.test_bounded_typed_inputs_and_utf8_are_explicit) ... ok\ntest_conflicting_offset_and_batch_identity_fail_without_side_effects (test_warehouse.WarehouseTests.test_conflicting_offset_and_batch_identity_fail_without_side_effects) ... ok\ntest_dag_cycles_missing_columns_and_changed_pipeline_are_rejected (test_warehouse.WarehouseTests.test_dag_cycles_missing_columns_and_changed_pipeline_are_rejected) ... ok\ntest_duplicate_exact_event_and_batch_are_idempotent (test_warehouse.WarehouseTests.test_duplicate_exact_event_and_batch_are_idempotent) ... ok\ntest_float_delta_cancellation_uses_persisted_exact_accumulator (test_warehouse.WarehouseTests.test_float_delta_cancellation_uses_persisted_exact_accumulator) ... ok\ntest_gap_rolls_back_earlier_valid_events_in_same_batch (test_warehouse.WarehouseTests.test_gap_rolls_back_earlier_valid_events_in_same_batch) ... ok\ntest_incompatible_schema_and_no_default_are_rejected (test_warehouse.WarehouseTests.test_incompatible_schema_and_no_default_are_rejected) ... ok\ntest_invalid_delete_schema_is_quarantined (test_warehouse.WarehouseTests.test_invalid_delete_schema_is_quarantined) ... ok\ntest_lineage_points_to_published_dependency_generation (test_warehouse.WarehouseTests.test_lineage_points_to_published_dependency_generation) ... ok\ntest_multiple_mutations_of_one_key_are_coalesced (test_warehouse.WarehouseTests.test_multiple_mutations_of_one_key_are_coalesced) ... ok\ntest_noop_filter_does_not_invalidate_downstream_content_lineage (test_warehouse.WarehouseTests.test_noop_filter_does_not_invalidate_downstream_content_lineage) ... ok\ntest_publish_failure_rolls_back_schema_models_ledger_and_offsets (test_warehouse.WarehouseTests.test_publish_failure_rolls_back_schema_models_ledger_and_offsets) ... ok\ntest_seeded_experiment_matches_full_rebuild_across_seeds (test_warehouse.WarehouseTests.test_seeded_experiment_matches_full_rebuild_across_seeds) ... ok\ntest_source_ties_are_deterministic_across_partitions (test_warehouse.WarehouseTests.test_source_ties_are_deterministic_across_partitions) ... ok\ntest_staging_restart_recovers_from_persisted_payload (test_warehouse.WarehouseTests.test_staging_restart_recovers_from_persisted_payload) ... ok\ntest_tampered_staging_cannot_publish (test_warehouse.WarehouseTests.test_tampered_staging_cannot_publish) ... ok\ntest_tombstone_prevents_old_backfill_resurrection (test_warehouse.WarehouseTests.test_tombstone_prevents_old_backfill_resurrection) ... ok\ntest_type_widening_preserves_declared_float_representation (test_warehouse.WarehouseTests.test_type_widening_preserves_declared_float_representation) ... ok\ntest_upsert_group_transfer_refund_and_delete_delta_aggregates (test_warehouse.WarehouseTests.test_upsert_group_transfer_refund_and_delete_delta_aggregates) ... ok\ntest_wal_reader_sees_one_atomic_generation (test_warehouse.WarehouseTests.test_wal_reader_sees_one_atomic_generation) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 2.724s\n\nOK\n",
+      "stderr_truncated": false,
+      "command": [
+        "/workspace/applied-ai-labs/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "seconds": 2.961771
+    },
+    {
+      "name": "demo",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/workspace/applied-ai-labs/.venv/bin/python",
+        "-m",
+        "incremental_lakehouse",
+        "demo",
+        "--output",
+        "/tmp/cli-reports-1aeb_g0b/demo.json"
+      ],
+      "seconds": 0.574325,
+      "report": {
+        "schema_version": 1,
+        "experiment": "seeded_synthetic_CDC_vs_independent_full_rebuild",
+        "seed": 17,
+        "input_sha256": "0408c38acbae20de0789b15142bd6733acb815f7f2b3df1fb554e4eaf72fa811",
+        "unique_source_events": 120,
+        "published_batches": 12,
+        "checks": 53,
+        "passed": 53,
+        "metrics": {
+          "new_offsets": 120,
+          "duplicate_events": 11,
+          "quarantined": 7,
+          "stale_events": 26,
+          "changed_source_keys": 77
+        },
+        "final_snapshot": {
+          "sources": {
+            "orders": {
+              "order_0": {
+                "amount_cents": 181,
+                "entity": "entity_0",
+                "id": "order_0",
+                "region": "unknown",
+                "status": "refunded"
+              },
+              "order_10": {
+                "amount_cents": 265,
+                "entity": "entity_3",
+                "id": "order_10",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_11": {
+                "amount_cents": 141,
+                "entity": "entity_0",
+                "id": "order_11",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_2": {
+                "amount_cents": 6,
+                "entity": "entity_3",
+                "id": "order_2",
+                "region": "eu",
+                "status": "pending"
+              },
+              "order_4": {
+                "amount_cents": 19,
+                "entity": "entity_1",
+                "id": "order_4",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_5": {
+                "amount_cents": 196,
+                "entity": "entity_1",
+                "id": "order_5",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_6": {
+                "amount_cents": 237,
+                "entity": "entity_0",
+                "id": "order_6",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_7": {
+                "amount_cents": 113,
+                "entity": "entity_2",
+                "id": "order_7",
+                "region": "eu",
+                "status": "paid"
+              },
+              "order_8": {
+                "amount_cents": 23,
+                "entity": "entity_0",
+                "id": "order_8",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_9": {
+                "amount_cents": 21,
+                "entity": "entity_0",
+                "id": "order_9",
+                "region": "unknown",
+                "status": "refunded"
+              }
+            }
+          },
+          "models": {
+            "paid_orders": {
+              "order_4": {
+                "amount_cents": 19,
+                "entity": "entity_1",
+                "id": "order_4",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_5": {
+                "amount_cents": 196,
+                "entity": "entity_1",
+                "id": "order_5",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_6": {
+                "amount_cents": 237,
+                "entity": "entity_0",
+                "id": "order_6",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_7": {
+                "amount_cents": 113,
+                "entity": "entity_2",
+                "id": "order_7",
+                "region": "eu",
+                "status": "paid"
+              }
+            },
+            "refunded_orders": {
+              "order_0": {
+                "amount_cents": 181,
+                "entity": "entity_0",
+                "id": "order_0",
+                "region": "unknown",
+                "status": "refunded"
+              },
+              "order_9": {
+                "amount_cents": 21,
+                "entity": "entity_0",
+                "id": "order_9",
+                "region": "unknown",
+                "status": "refunded"
+              }
+            },
+            "entity_totals": {
+              "\"entity_0\"": {
+                "entity": "entity_0",
+                "order_count": 1,
+                "total_amount_cents": 237
+              },
+              "\"entity_1\"": {
+                "entity": "entity_1",
+                "order_count": 2,
+                "total_amount_cents": 215
+              },
+              "\"entity_2\"": {
+                "entity": "entity_2",
+                "order_count": 1,
+                "total_amount_cents": 113
+              }
+            },
+            "refund_totals": {
+              "\"entity_0\"": {
+                "entity": "entity_0",
+                "order_count": 2,
+                "total_amount_cents": 202
+              }
+            }
+          },
+          "offsets": [
+            {
+              "source": "orders_source",
+              "partition": "p0",
+              "offset": 39
+            },
+            {
+              "source": "orders_source",
+              "partition": "p1",
+              "offset": 39
+            },
+            {
+              "source": "orders_source",
+              "partition": "p2",
+              "offset": 39
+            }
+          ],
+          "quarantine_count": 7,
+          "generation": 12,
+          "content_generations": {
+            "entity_totals": 12,
+            "orders": 12,
+            "paid_orders": 12,
+            "refund_totals": 12,
+            "refunded_orders": 12
+          },
+          "lineage": [
+            {
+              "model": "entity_totals",
+              "dependency": "paid_orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "paid_orders",
+              "dependency": "orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "refund_totals",
+              "dependency": "refunded_orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "refunded_orders",
+              "dependency": "orders",
+              "input_generation": 12,
+              "generation": 12
+            }
+          ]
+        },
+        "limitations": [
+          "SQLite local single-writer publication; no distributed transactions.",
+          "Event-time LWW with deterministic source ties is the declared conflict policy.",
+          "Synthetic integer-valued orders; no production throughput or downstream model quality claim."
+        ]
+      }
+    },
+    {
+      "name": "evaluate",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/workspace/applied-ai-labs/.venv/bin/python",
+        "-m",
+        "incremental_lakehouse",
+        "evaluate",
+        "--output",
+        "/tmp/cli-reports-1aeb_g0b/evaluate.json"
+      ],
+      "seconds": 0.602956,
+      "report": {
+        "schema_version": 1,
+        "experiment": "seeded_synthetic_CDC_vs_independent_full_rebuild",
+        "seed": 17,
+        "input_sha256": "0408c38acbae20de0789b15142bd6733acb815f7f2b3df1fb554e4eaf72fa811",
+        "unique_source_events": 120,
+        "published_batches": 12,
+        "checks": 53,
+        "passed": 53,
+        "metrics": {
+          "new_offsets": 120,
+          "duplicate_events": 11,
+          "quarantined": 7,
+          "stale_events": 26,
+          "changed_source_keys": 77
+        },
+        "final_snapshot": {
+          "sources": {
+            "orders": {
+              "order_0": {
+                "amount_cents": 181,
+                "entity": "entity_0",
+                "id": "order_0",
+                "region": "unknown",
+                "status": "refunded"
+              },
+              "order_10": {
+                "amount_cents": 265,
+                "entity": "entity_3",
+                "id": "order_10",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_11": {
+                "amount_cents": 141,
+                "entity": "entity_0",
+                "id": "order_11",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_2": {
+                "amount_cents": 6,
+                "entity": "entity_3",
+                "id": "order_2",
+                "region": "eu",
+                "status": "pending"
+              },
+              "order_4": {
+                "amount_cents": 19,
+                "entity": "entity_1",
+                "id": "order_4",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_5": {
+                "amount_cents": 196,
+                "entity": "entity_1",
+                "id": "order_5",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_6": {
+                "amount_cents": 237,
+                "entity": "entity_0",
+                "id": "order_6",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_7": {
+                "amount_cents": 113,
+                "entity": "entity_2",
+                "id": "order_7",
+                "region": "eu",
+                "status": "paid"
+              },
+              "order_8": {
+                "amount_cents": 23,
+                "entity": "entity_0",
+                "id": "order_8",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_9": {
+                "amount_cents": 21,
+                "entity": "entity_0",
+                "id": "order_9",
+                "region": "unknown",
+                "status": "refunded"
+              }
+            }
+          },
+          "models": {
+            "paid_orders": {
+              "order_4": {
+                "amount_cents": 19,
+                "entity": "entity_1",
+                "id": "order_4",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_5": {
+                "amount_cents": 196,
+                "entity": "entity_1",
+                "id": "order_5",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_6": {
+                "amount_cents": 237,
+                "entity": "entity_0",
+                "id": "order_6",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_7": {
+                "amount_cents": 113,
+                "entity": "entity_2",
+                "id": "order_7",
+                "region": "eu",
+                "status": "paid"
+              }
+            },
+            "refunded_orders": {
+              "order_0": {
+                "amount_cents": 181,
+                "entity": "entity_0",
+                "id": "order_0",
+                "region": "unknown",
+                "status": "refunded"
+              },
+              "order_9": {
+                "amount_cents": 21,
+                "entity": "entity_0",
+                "id": "order_9",
+                "region": "unknown",
+                "status": "refunded"
+              }
+            },
+            "entity_totals": {
+              "\"entity_0\"": {
+                "entity": "entity_0",
+                "order_count": 1,
+                "total_amount_cents": 237
+              },
+              "\"entity_1\"": {
+                "entity": "entity_1",
+                "order_count": 2,
+                "total_amount_cents": 215
+              },
+              "\"entity_2\"": {
+                "entity": "entity_2",
+                "order_count": 1,
+                "total_amount_cents": 113
+              }
+            },
+            "refund_totals": {
+              "\"entity_0\"": {
+                "entity": "entity_0",
+                "order_count": 2,
+                "total_amount_cents": 202
+              }
+            }
+          },
+          "offsets": [
+            {
+              "source": "orders_source",
+              "partition": "p0",
+              "offset": 39
+            },
+            {
+              "source": "orders_source",
+              "partition": "p1",
+              "offset": 39
+            },
+            {
+              "source": "orders_source",
+              "partition": "p2",
+              "offset": 39
+            }
+          ],
+          "quarantine_count": 7,
+          "generation": 12,
+          "content_generations": {
+            "entity_totals": 12,
+            "orders": 12,
+            "paid_orders": 12,
+            "refund_totals": 12,
+            "refunded_orders": 12
+          },
+          "lineage": [
+            {
+              "model": "entity_totals",
+              "dependency": "paid_orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "paid_orders",
+              "dependency": "orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "refund_totals",
+              "dependency": "refunded_orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "refunded_orders",
+              "dependency": "orders",
+              "input_generation": 12,
+              "generation": 12
+            }
+          ]
+        },
+        "cases": [
+          {
+            "id": "batch-00-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-00-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-00-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-00-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-01-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-01-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-01-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-01-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-02-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-02-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-02-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-02-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-03-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-03-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-03-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-03-idempotence",
+            "passed": true
+          },
+          {
+            "id": "partial-staging-invisible",
+            "passed": true
+          },
+          {
+            "id": "batch-04-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-04-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-04-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-04-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-05-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-05-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-05-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-05-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-06-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-06-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-06-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-06-idempotence",
+            "passed": true
+          },
+          {
+            "id": "failed-publish-atomic",
+            "passed": true
+          },
+          {
+            "id": "batch-07-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-07-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-07-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-07-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-08-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-08-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-08-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-08-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-09-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-09-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-09-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-09-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-10-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-10-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-10-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-10-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-11-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-11-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-11-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-11-idempotence",
+            "passed": true
+          },
+          {
+            "id": "conflicting-offset",
+            "passed": true
+          },
+          {
+            "id": "offset-gap",
+            "passed": true
+          },
+          {
+            "id": "incompatible-schema",
+            "passed": true
+          }
+        ],
+        "limitations": [
+          "SQLite local single-writer publication; no distributed transactions.",
+          "Event-time LWW with deterministic source ties is the declared conflict policy.",
+          "Synthetic integer-valued orders; no production throughput or downstream model quality claim."
+        ]
+      }
+    },
+    {
+      "name": "wheel_build",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "Processing /workspace/ai-adjacent-repositories/incremental-lakehouse\n  Preparing metadata (pyproject.toml): started\n  Preparing metadata (pyproject.toml): finished with status 'done'\nBuilding wheels for collected packages: incremental-lakehouse\n  Building wheel for incremental-lakehouse (pyproject.toml): started\n  Building wheel for incremental-lakehouse (pyproject.toml): finished with status 'done'\n  Created wheel for incremental-lakehouse: filename=incremental_lakehouse-0.1.0-py3-none-any.whl size=17213 sha256=249a8cedfce89a21e1e666587ad7dcfd190bcaf7afe8fd3eef22127788f9cba4\n  Stored in directory: /home/agent/.cache/pip/wheels/ad/4e/dd/4e6c8715ed414ebd8ab00c8fb649ec71929de6105d368db639\nSuccessfully built incremental-lakehouse\n",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/workspace/applied-ai-labs/.venv/bin/python",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-deps",
+        "--no-build-isolation",
+        "--no-index",
+        "--wheel-dir",
+        "/tmp/cold-wheel-6l27shdp/wheels",
+        "."
+      ],
+      "seconds": 2.494849
+    },
+    {
+      "name": "wheel_install",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "Processing ./wheels/incremental_lakehouse-0.1.0-py3-none-any.whl\nInstalling collected packages: incremental-lakehouse\nSuccessfully installed incremental-lakehouse-0.1.0\n",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/tmp/cold-wheel-6l27shdp/environment/bin/python",
+        "-I",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--no-index",
+        "/tmp/cold-wheel-6l27shdp/wheels/incremental_lakehouse-0.1.0-py3-none-any.whl"
+      ],
+      "seconds": 0.85081
+    },
+    {
+      "name": "wheel_import_origin",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "/tmp/cold-wheel-6l27shdp/environment/lib/python3.12/site-packages/incremental_lakehouse/__init__.py\n",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/tmp/cold-wheel-6l27shdp/environment/bin/python",
+        "-I",
+        "-c",
+        "import incremental_lakehouse as module; import sys; from pathlib import Path; assert Path(module.__file__).resolve().is_relative_to(Path(sys.prefix).resolve()); print(module.__file__)"
+      ],
+      "seconds": 0.035737
+    },
+    {
+      "name": "wheel_demo",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/tmp/cold-wheel-6l27shdp/environment/bin/python",
+        "-I",
+        "-m",
+        "incremental_lakehouse",
+        "demo",
+        "--output",
+        "/tmp/cli-reports-dcjuyluf/demo.json"
+      ],
+      "seconds": 0.728641,
+      "report": {
+        "schema_version": 1,
+        "experiment": "seeded_synthetic_CDC_vs_independent_full_rebuild",
+        "seed": 17,
+        "input_sha256": "0408c38acbae20de0789b15142bd6733acb815f7f2b3df1fb554e4eaf72fa811",
+        "unique_source_events": 120,
+        "published_batches": 12,
+        "checks": 53,
+        "passed": 53,
+        "metrics": {
+          "new_offsets": 120,
+          "duplicate_events": 11,
+          "quarantined": 7,
+          "stale_events": 26,
+          "changed_source_keys": 77
+        },
+        "final_snapshot": {
+          "sources": {
+            "orders": {
+              "order_0": {
+                "amount_cents": 181,
+                "entity": "entity_0",
+                "id": "order_0",
+                "region": "unknown",
+                "status": "refunded"
+              },
+              "order_10": {
+                "amount_cents": 265,
+                "entity": "entity_3",
+                "id": "order_10",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_11": {
+                "amount_cents": 141,
+                "entity": "entity_0",
+                "id": "order_11",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_2": {
+                "amount_cents": 6,
+                "entity": "entity_3",
+                "id": "order_2",
+                "region": "eu",
+                "status": "pending"
+              },
+              "order_4": {
+                "amount_cents": 19,
+                "entity": "entity_1",
+                "id": "order_4",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_5": {
+                "amount_cents": 196,
+                "entity": "entity_1",
+                "id": "order_5",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_6": {
+                "amount_cents": 237,
+                "entity": "entity_0",
+                "id": "order_6",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_7": {
+                "amount_cents": 113,
+                "entity": "entity_2",
+                "id": "order_7",
+                "region": "eu",
+                "status": "paid"
+              },
+              "order_8": {
+                "amount_cents": 23,
+                "entity": "entity_0",
+                "id": "order_8",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_9": {
+                "amount_cents": 21,
+                "entity": "entity_0",
+                "id": "order_9",
+                "region": "unknown",
+                "status": "refunded"
+              }
+            }
+          },
+          "models": {
+            "paid_orders": {
+              "order_4": {
+                "amount_cents": 19,
+                "entity": "entity_1",
+                "id": "order_4",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_5": {
+                "amount_cents": 196,
+                "entity": "entity_1",
+                "id": "order_5",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_6": {
+                "amount_cents": 237,
+                "entity": "entity_0",
+                "id": "order_6",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_7": {
+                "amount_cents": 113,
+                "entity": "entity_2",
+                "id": "order_7",
+                "region": "eu",
+                "status": "paid"
+              }
+            },
+            "refunded_orders": {
+              "order_0": {
+                "amount_cents": 181,
+                "entity": "entity_0",
+                "id": "order_0",
+                "region": "unknown",
+                "status": "refunded"
+              },
+              "order_9": {
+                "amount_cents": 21,
+                "entity": "entity_0",
+                "id": "order_9",
+                "region": "unknown",
+                "status": "refunded"
+              }
+            },
+            "entity_totals": {
+              "\"entity_0\"": {
+                "entity": "entity_0",
+                "order_count": 1,
+                "total_amount_cents": 237
+              },
+              "\"entity_1\"": {
+                "entity": "entity_1",
+                "order_count": 2,
+                "total_amount_cents": 215
+              },
+              "\"entity_2\"": {
+                "entity": "entity_2",
+                "order_count": 1,
+                "total_amount_cents": 113
+              }
+            },
+            "refund_totals": {
+              "\"entity_0\"": {
+                "entity": "entity_0",
+                "order_count": 2,
+                "total_amount_cents": 202
+              }
+            }
+          },
+          "offsets": [
+            {
+              "source": "orders_source",
+              "partition": "p0",
+              "offset": 39
+            },
+            {
+              "source": "orders_source",
+              "partition": "p1",
+              "offset": 39
+            },
+            {
+              "source": "orders_source",
+              "partition": "p2",
+              "offset": 39
+            }
+          ],
+          "quarantine_count": 7,
+          "generation": 12,
+          "content_generations": {
+            "entity_totals": 12,
+            "orders": 12,
+            "paid_orders": 12,
+            "refund_totals": 12,
+            "refunded_orders": 12
+          },
+          "lineage": [
+            {
+              "model": "entity_totals",
+              "dependency": "paid_orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "paid_orders",
+              "dependency": "orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "refund_totals",
+              "dependency": "refunded_orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "refunded_orders",
+              "dependency": "orders",
+              "input_generation": 12,
+              "generation": 12
+            }
+          ]
+        },
+        "limitations": [
+          "SQLite local single-writer publication; no distributed transactions.",
+          "Event-time LWW with deterministic source ties is the declared conflict policy.",
+          "Synthetic integer-valued orders; no production throughput or downstream model quality claim."
+        ]
+      }
+    },
+    {
+      "name": "wheel_evaluate",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false,
+      "command": [
+        "/tmp/cold-wheel-6l27shdp/environment/bin/python",
+        "-I",
+        "-m",
+        "incremental_lakehouse",
+        "evaluate",
+        "--output",
+        "/tmp/cli-reports-dcjuyluf/evaluate.json"
+      ],
+      "seconds": 0.826378,
+      "report": {
+        "schema_version": 1,
+        "experiment": "seeded_synthetic_CDC_vs_independent_full_rebuild",
+        "seed": 17,
+        "input_sha256": "0408c38acbae20de0789b15142bd6733acb815f7f2b3df1fb554e4eaf72fa811",
+        "unique_source_events": 120,
+        "published_batches": 12,
+        "checks": 53,
+        "passed": 53,
+        "metrics": {
+          "new_offsets": 120,
+          "duplicate_events": 11,
+          "quarantined": 7,
+          "stale_events": 26,
+          "changed_source_keys": 77
+        },
+        "final_snapshot": {
+          "sources": {
+            "orders": {
+              "order_0": {
+                "amount_cents": 181,
+                "entity": "entity_0",
+                "id": "order_0",
+                "region": "unknown",
+                "status": "refunded"
+              },
+              "order_10": {
+                "amount_cents": 265,
+                "entity": "entity_3",
+                "id": "order_10",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_11": {
+                "amount_cents": 141,
+                "entity": "entity_0",
+                "id": "order_11",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_2": {
+                "amount_cents": 6,
+                "entity": "entity_3",
+                "id": "order_2",
+                "region": "eu",
+                "status": "pending"
+              },
+              "order_4": {
+                "amount_cents": 19,
+                "entity": "entity_1",
+                "id": "order_4",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_5": {
+                "amount_cents": 196,
+                "entity": "entity_1",
+                "id": "order_5",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_6": {
+                "amount_cents": 237,
+                "entity": "entity_0",
+                "id": "order_6",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_7": {
+                "amount_cents": 113,
+                "entity": "entity_2",
+                "id": "order_7",
+                "region": "eu",
+                "status": "paid"
+              },
+              "order_8": {
+                "amount_cents": 23,
+                "entity": "entity_0",
+                "id": "order_8",
+                "region": "unknown",
+                "status": "pending"
+              },
+              "order_9": {
+                "amount_cents": 21,
+                "entity": "entity_0",
+                "id": "order_9",
+                "region": "unknown",
+                "status": "refunded"
+              }
+            }
+          },
+          "models": {
+            "paid_orders": {
+              "order_4": {
+                "amount_cents": 19,
+                "entity": "entity_1",
+                "id": "order_4",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_5": {
+                "amount_cents": 196,
+                "entity": "entity_1",
+                "id": "order_5",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_6": {
+                "amount_cents": 237,
+                "entity": "entity_0",
+                "id": "order_6",
+                "region": "unknown",
+                "status": "paid"
+              },
+              "order_7": {
+                "amount_cents": 113,
+                "entity": "entity_2",
+                "id": "order_7",
+                "region": "eu",
+                "status": "paid"
+              }
+            },
+            "refunded_orders": {
+              "order_0": {
+                "amount_cents": 181,
+                "entity": "entity_0",
+                "id": "order_0",
+                "region": "unknown",
+                "status": "refunded"
+              },
+              "order_9": {
+                "amount_cents": 21,
+                "entity": "entity_0",
+                "id": "order_9",
+                "region": "unknown",
+                "status": "refunded"
+              }
+            },
+            "entity_totals": {
+              "\"entity_0\"": {
+                "entity": "entity_0",
+                "order_count": 1,
+                "total_amount_cents": 237
+              },
+              "\"entity_1\"": {
+                "entity": "entity_1",
+                "order_count": 2,
+                "total_amount_cents": 215
+              },
+              "\"entity_2\"": {
+                "entity": "entity_2",
+                "order_count": 1,
+                "total_amount_cents": 113
+              }
+            },
+            "refund_totals": {
+              "\"entity_0\"": {
+                "entity": "entity_0",
+                "order_count": 2,
+                "total_amount_cents": 202
+              }
+            }
+          },
+          "offsets": [
+            {
+              "source": "orders_source",
+              "partition": "p0",
+              "offset": 39
+            },
+            {
+              "source": "orders_source",
+              "partition": "p1",
+              "offset": 39
+            },
+            {
+              "source": "orders_source",
+              "partition": "p2",
+              "offset": 39
+            }
+          ],
+          "quarantine_count": 7,
+          "generation": 12,
+          "content_generations": {
+            "entity_totals": 12,
+            "orders": 12,
+            "paid_orders": 12,
+            "refund_totals": 12,
+            "refunded_orders": 12
+          },
+          "lineage": [
+            {
+              "model": "entity_totals",
+              "dependency": "paid_orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "paid_orders",
+              "dependency": "orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "refund_totals",
+              "dependency": "refunded_orders",
+              "input_generation": 12,
+              "generation": 12
+            },
+            {
+              "model": "refunded_orders",
+              "dependency": "orders",
+              "input_generation": 12,
+              "generation": 12
+            }
+          ]
+        },
+        "cases": [
+          {
+            "id": "batch-00-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-00-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-00-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-00-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-01-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-01-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-01-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-01-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-02-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-02-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-02-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-02-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-03-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-03-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-03-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-03-idempotence",
+            "passed": true
+          },
+          {
+            "id": "partial-staging-invisible",
+            "passed": true
+          },
+          {
+            "id": "batch-04-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-04-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-04-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-04-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-05-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-05-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-05-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-05-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-06-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-06-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-06-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-06-idempotence",
+            "passed": true
+          },
+          {
+            "id": "failed-publish-atomic",
+            "passed": true
+          },
+          {
+            "id": "batch-07-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-07-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-07-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-07-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-08-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-08-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-08-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-08-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-09-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-09-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-09-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-09-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-10-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-10-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-10-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-10-idempotence",
+            "passed": true
+          },
+          {
+            "id": "batch-11-full-rebuild",
+            "passed": true
+          },
+          {
+            "id": "batch-11-offsets",
+            "passed": true
+          },
+          {
+            "id": "batch-11-lineage",
+            "passed": true
+          },
+          {
+            "id": "batch-11-idempotence",
+            "passed": true
+          },
+          {
+            "id": "conflicting-offset",
+            "passed": true
+          },
+          {
+            "id": "offset-gap",
+            "passed": true
+          },
+          {
+            "id": "incompatible-schema",
+            "passed": true
+          }
+        ],
+        "limitations": [
+          "SQLite local single-writer publication; no distributed transactions.",
+          "Event-time LWW with deterministic source ties is the declared conflict policy.",
+          "Synthetic integer-valued orders; no production throughput or downstream model quality claim."
+        ]
+      }
+    }
+  ]
+}

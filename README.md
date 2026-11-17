@@ -7,7 +7,7 @@ The publish transaction advances source offsets, selects current rows, maintains
 ## Publish an order change
 
 ```sh
-python -m pip install -e . --no-build-isolation
+python -m pip install -e .
 python -m incremental_lakehouse demo --config contracts/experiment.json --output artifacts/publish.json
 ```
 
